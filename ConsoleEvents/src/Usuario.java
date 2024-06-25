@@ -67,5 +67,8 @@ public class Usuario {
         public void SetCidade(String Cidade) {
             this.Cidade = Cidade;
         }
+        public String toFileString() {
+        return Nome + "," + Sobrenome + "," + email + "," + Password + "," + Cidade;
+    }
 }
 

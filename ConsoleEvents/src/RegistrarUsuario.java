@@ -1,4 +1,8 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+
 
 public class RegistrarUsuario {
     private Scanner scanner;
@@ -26,5 +30,14 @@ public class RegistrarUsuario {
         String cidade = scanner.nextLine();
 
         return new Usuario(nome, sobrenome, email, password, cidade);
+    }
+    public void salvarUsuarioEmArquivo(Usuario usuario) {
+        String caminho = "Data/DataUsuario.txt";
+        try (PrintWriter writer = new PrintWriter(new FileWriter(caminho, true))) {
+            writer.println(usuario.toFileString());
+            System.out.println("Usuário salvo com sucesso no arquivo " + caminho);
+        } catch (IOException e) {
+            System.err.println("Erro ao salvar usuário no arquivo " + caminho + ": " + e.getMessage());
+        }
     }
 }
