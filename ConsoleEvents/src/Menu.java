@@ -8,6 +8,7 @@ public class Menu {
 
         CleanConsole.clean();
         while (ChooseOption != 0) {
+            CleanConsole.clean();
             System.out.println("==================================================================|");
             System.out.println("Bem vindo ao Software de Eventos de Canoas e região metropolitana!|");
             System.out.println("             Para prosseguir precisa de login                     |");
@@ -21,7 +22,7 @@ public class Menu {
                 switch (ChooseOption) {
                     case 1:
                         Login login = new Login();
-                        Login.login();
+                        Login.methodLogin();
                         break;
                     case 2:
                         RegistrarUsuario registrar = new RegistrarUsuario();
@@ -35,7 +36,7 @@ public class Menu {
                         System.exit(0);
                         break;
                     default:
-                        System.out.println("Tente outra opção");
+                        System.out.println("Opção invalida. Tente novamente.");
 
                 }
             } catch (Exception e) {
