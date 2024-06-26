@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class Login {
     private static final String FILE_PATH = "Data/DataUsuario.txt";
     public static boolean login(){
+
+        CleanConsole.clean();
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter username: ");
         String username = scanner.nextLine();
@@ -15,9 +17,10 @@ public class Login {
                 try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
                     String line;
                     while ((line = br.readLine()) != null) {
-                        String[] parts = line.split(":");
-                        if (parts[0].equals(username) && parts[1].equals(password)) {
+                        String[] parts = line.split(",");
+                        if (parts[2].equals(username) && parts[3].equals(password)) {
                             System.out.println("Login successful!");
+                            CleanConsole.clean();
                             return true;
                         }
                     }
