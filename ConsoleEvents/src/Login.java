@@ -15,8 +15,7 @@ public class Login {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Digite 'voltar' para retornar ao menu principal");
-            System.out.print("Emai: ");
+            System.out.print("Email: ");
             username = scanner.nextLine();
             if (username.equalsIgnoreCase("voltar")) {
                 return;  // Voltar ao menu principal
@@ -31,6 +30,8 @@ public class Login {
             if (validLogin()) {
                 System.out.println("Login bem-sucedido!");
                 CleanConsole.clean();
+                Menu2 menu2 = new Menu2();
+                Menu2.displayMenu2();
                 return;  // Sucesso, voltando ao menu principal
             } else {
                 System.out.println("\nUsuário ou senha inválidos. Tente novamente.\n");
