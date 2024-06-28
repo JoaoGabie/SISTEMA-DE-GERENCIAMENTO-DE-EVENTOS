@@ -21,8 +21,6 @@ public class RegistrarUsuario {
         System.out.print("Digite o email do usuário: ");
         String email = scanner.nextLine();
 
-        // Presumindo que outras informações são necessárias para criar um Usuario
-
         System.out.print("Digite a senha do usuário: ");
         String password = scanner.nextLine();
 
@@ -35,7 +33,7 @@ public class RegistrarUsuario {
         String caminho = "Data/DataUsuario.txt";
         try (PrintWriter writer = new PrintWriter(new FileWriter(caminho, true))) {
             writer.println(usuario.toFileString());
-            System.out.println("Usuário salvo com sucesso no arquivo " + caminho);
+            System.out.println("Usuário salvo com sucesso no arquivo " + caminho+"\n");
         } catch (IOException e) {
             System.err.println("Erro ao salvar usuário no arquivo " + caminho + ": " + e.getMessage());
         }

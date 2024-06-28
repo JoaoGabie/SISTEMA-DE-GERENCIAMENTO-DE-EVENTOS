@@ -1,5 +1,9 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -57,4 +61,43 @@ public class Login {
 
         return false;
     }
+
+    public static void deleteUser(String email) {
+        List<String> lines = new ArrayList<>();
+        boolean userFound = false;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts[2].equals(email)) {
+                    userFound = true;
+                } else {
+                    lines.add(line);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler os dados do usuário.");
+            e.printStackTrace();
+            return;
+        }
+
+        if (!userFound) {
+            System.out.println("Usuário não encontrado.");
+            return;
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILE_PATH))) {
+            for (String l : lines) {
+                bw.write(l);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao escrever os dados do usuário.");
+            e.printStackTrace();
+        }
+
+        System.out.println("Usuário excluído com sucesso.");
+    }
 }
+

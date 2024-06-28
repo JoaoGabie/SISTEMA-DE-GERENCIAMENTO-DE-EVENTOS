@@ -1,4 +1,8 @@
 import java.util.Scanner;
+import  java.lang.Exception;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+
 
 public class Menu2 {
 
@@ -16,6 +20,13 @@ public class Menu2 {
                 System.out.println("|=========================|");
                 System.out.print("Digite sua escolha: ");
 
+                if (sc.hasNextInt()) {
+                    ChooseOption = sc.nextInt();
+                } else {
+                    sc.next(); // consume the invalid input
+                    throw new InputMismatchException();
+                }
+
                 try {
                     ChooseOption = sc.nextInt();
                     sc.nextLine();
@@ -25,7 +36,8 @@ public class Menu2 {
                             System.out.println("OK");
                             break;
                         case 2:
-                            System.out.print("ok2");
+                            MenuAdm menuAdm = new MenuAdm();
+                            MenuAdm.methodMenuAdm();
                             break;
                         case 0:
                             Logout.methodLogout();
@@ -36,6 +48,8 @@ public class Menu2 {
                     }
                 } catch (Exception e) {
                     System.out.println("Erro ao ler entrada. Certifique-se de digitar um número válido.");
+                    e.printStackTrace();
+
                 }
             }
         sc.close();
