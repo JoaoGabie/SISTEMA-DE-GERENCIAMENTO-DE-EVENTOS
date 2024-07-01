@@ -1,2 +1,2 @@
 Joao,Gabriel,joao@gmail.com,senha,canoas
-lucas,sobrenome,lucas@gmail.com,senha,canoas
+Douglas,Sobrenome,douglas@gmail.com,senha,Canoas

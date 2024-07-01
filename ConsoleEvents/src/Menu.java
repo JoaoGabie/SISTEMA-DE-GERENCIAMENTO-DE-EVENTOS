@@ -41,6 +41,7 @@ public class Menu {
                 }
             } catch (Exception e) {
                 System.out.println("Erro ao ler entrada. Certifique-se de digitar um número válido.");
+                sc.next();
             }
         }
         sc.close();

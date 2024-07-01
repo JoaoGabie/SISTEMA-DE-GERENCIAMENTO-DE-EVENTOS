@@ -19,7 +19,7 @@ public class Usuario {
         this.email = email;
         this.Password = Password;
         this.Cidade = Cidade;
-        }
+    }
 
 
         public int GetID() {
@@ -67,7 +67,8 @@ public class Usuario {
         public void SetCidade(String Cidade) {
             this.Cidade = Cidade;
         }
-        public String toFileString() {
+
+        public String toFileStringUser() {
         return Nome + "," + Sobrenome + "," + email + "," + Password + "," + Cidade;
     }
 }

@@ -32,7 +32,7 @@ public class RegistrarUsuario {
     public void salvarUsuarioEmArquivo(Usuario usuario) {
         String caminho = "Data/DataUsuario.txt";
         try (PrintWriter writer = new PrintWriter(new FileWriter(caminho, true))) {
-            writer.println(usuario.toFileString());
+            writer.println(usuario.toFileStringUser());
             System.out.println("Usuário salvo com sucesso no arquivo " + caminho+"\n");
         } catch (IOException e) {
             System.err.println("Erro ao salvar usuário no arquivo " + caminho + ": " + e.getMessage());
