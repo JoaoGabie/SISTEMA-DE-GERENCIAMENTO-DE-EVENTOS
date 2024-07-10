@@ -11,7 +11,7 @@ public class RegistrarEvento {
 
     public RegistrarEvento(){this.scanner = new Scanner(System.in);}
 
-    public Eventos capturarDadosEventos(){
+    public Eventos methodCapturarDadosEventos(){
         System.out.print("Digite o Nome do Evento: ");
         String nomeEvento  = scanner.nextLine();
 
@@ -37,11 +37,12 @@ public class RegistrarEvento {
     public boolean saveEventToFile(Eventos evento) {
         String caminho2 = "Data/DataEvento.txt";
         try (PrintWriter writer = new PrintWriter(new FileWriter(caminho2, true))) {
-            writer.println(Eventos.toFileStringEvents());
+            writer.println(evento.toFileStringEvents());
             System.out.println("Usuário salvo com sucesso no arquivo " + caminho2+"\n");
+            return true;
         } catch (IOException e) {
             System.err.println("Erro ao salvar usuário no arquivo " + caminho2 + ": " + e.getMessage());
+            return false;
         }
-        return false;
     }
 }

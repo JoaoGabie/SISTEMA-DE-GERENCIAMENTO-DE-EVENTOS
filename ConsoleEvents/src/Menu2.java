@@ -1,7 +1,5 @@
 import java.util.Scanner;
 import  java.lang.Exception;
-import java.util.InputMismatchException;
-
 
 
 public class Menu2 {
@@ -36,8 +34,8 @@ public class Menu2 {
                             System.out.println("OK");
                             break;
                         case 2:
-                            MenuAdm menuAdm = new MenuAdm();
-                            MenuAdm.methodMenuAdm();
+                            Administracao administracao = new Administracao();
+                            Administracao.methodMenuAdm();
                             break;
                         case 0:
                             Logout.methodLogout();

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class MenuAdm {
+public class Administracao {
     public static void methodMenuAdm(){
         Scanner sc = new Scanner(System.in);
         int ChooseOption = -1;
@@ -31,7 +31,10 @@ public class MenuAdm {
 
                         switch (ChooseOption) {
                             case 1:
-                                System.out.println("Cadastro  de eventos");
+//
+                                RegistrarEvento registrarEvento = new RegistrarEvento();
+                                Eventos novoEvento = registrarEvento.methodCapturarDadosEventos();
+                                registrarEvento.saveEventToFile(novoEvento);
                                 break;
                             case 2:
                                 System.out.println("Visualização de Eventos");
