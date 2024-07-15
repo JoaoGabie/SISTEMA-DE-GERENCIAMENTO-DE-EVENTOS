@@ -26,19 +26,18 @@ public class RegistrarEvento {
         System.out.print("Digite a Descrição do Evento: ");
         String descricao = scanner.nextLine();
 
+        //Confirmação evento criado formatado pela classe toString
         Eventos evento = new Eventos(nomeEvento, endereco, dataHora, descricao);
         System.out.println("Evento criado: ");
         System.out.println(evento.toString());
 
-        boolean isWritten = saveEventToFile(evento);
-        System.out.println("Evento salvo no arquivo: " + isWritten);
         return evento;
     }
     public boolean saveEventToFile(Eventos evento) {
         String caminho2 = "Data/DataEvento.txt";
         try (PrintWriter writer = new PrintWriter(new FileWriter(caminho2, true))) {
             writer.println(evento.toFileStringEvents());
-            System.out.println("Usuário salvo com sucesso no arquivo " + caminho2+"\n");
+            System.out.println("Evento salvo com sucesso no arquivo " + caminho2+"\n");
             return true;
         } catch (IOException e) {
             System.err.println("Erro ao salvar usuário no arquivo " + caminho2 + ": " + e.getMessage());

@@ -62,6 +62,8 @@ public class Login {
         return false;
     }
 
+    //Metodo para deletar Usuarios Registrados
+
     public static void deleteUser(String email) {
         List<String> lines = new ArrayList<>();
         boolean userFound = false;

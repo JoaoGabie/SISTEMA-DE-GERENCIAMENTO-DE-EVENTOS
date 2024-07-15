@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Usuario {
 
@@ -70,6 +73,23 @@ public class Usuario {
 
         public String toFileStringUser() {
         return Nome + "," + Sobrenome + "," + email + "," + Password + "," + Cidade;
+    }
+
+    //Metodo para visualizar os usuarios cadastrados
+    public static void visualizarUsuarios() {
+        String filePath = "Data/DataUsuario.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            System.out.println("Usuários cadastrados:");
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                System.out.println("Nome: " + parts[0] + " " +parts[1] + ", Email: " + parts[2]);
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao ler os dados do usuário.");
+            e.printStackTrace();
+        }
     }
 }
 

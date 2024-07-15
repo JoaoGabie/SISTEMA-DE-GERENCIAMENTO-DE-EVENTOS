@@ -18,7 +18,8 @@ public class Logout {
 
                 switch (ChooseOption) {
                     case 1:
-                        return;
+                        Menu.displayMenu();
+                        break;
                     case 2:
                         System.out.println("\n==================================================================");
                         System.out.println("\n                  O programa será encerrado.");

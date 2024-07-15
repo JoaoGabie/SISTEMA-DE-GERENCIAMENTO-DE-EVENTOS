@@ -1,13 +1,12 @@
 import java.util.Scanner;
 import java.lang.Exception;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 
 public class Administracao {
     public static void methodMenuAdm(){
         Scanner sc = new Scanner(System.in);
         int ChooseOption = -1;
+        char AreSure;
 
                 while(ChooseOption != 0){
 
@@ -31,16 +30,21 @@ public class Administracao {
 
                         switch (ChooseOption) {
                             case 1:
-//
                                 RegistrarEvento registrarEvento = new RegistrarEvento();
                                 Eventos novoEvento = registrarEvento.methodCapturarDadosEventos();
                                 registrarEvento.saveEventToFile(novoEvento);
                                 break;
                             case 2:
-                                System.out.println("Visualização de Eventos");
+                                System.out.println("\n");
+                                Eventos.visualizarEventos();
+                                System.out.print("'Enter' para contunuar");
+                                sc.nextLine();
                                 break;
                             case 3:
-                                System.out.println("Cancelar algum evento");
+                                System.out.print("Nome do Evento a ser excluído: ");
+                                String nomeEvento = sc.nextLine();
+                                Eventos.deleteEvents(nomeEvento);
+                                System.out.println("Voltando ao menu principal...");
                                 break;
                             case 4:
                                 RegistrarUsuario registrar = new RegistrarUsuario();
@@ -49,7 +53,7 @@ public class Administracao {
                                 break;
                             case 5:
                                 System.lineSeparator();
-                                visualizarUsuarios();
+                                Usuario.visualizarUsuarios();
                                 System.out.print("'Enter' para contunuar");
                                 sc.nextLine();
                                 System.lineSeparator();
@@ -75,19 +79,4 @@ public class Administracao {
 
                 }
    }
-    private static void visualizarUsuarios() {
-        String filePath = "Data/DataUsuario.txt";  // Certifique-se de que o caminho do arquivo está correto
-
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            System.out.println("Usuários cadastrados:");
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
-                System.out.println("Nome: " + parts[0] + " " +parts[1] + ", Email: " + parts[2]);
-            }
-        } catch (IOException e) {
-            System.out.println("Erro ao ler os dados do usuário.");
-            e.printStackTrace();
-        }
-    }
 }
