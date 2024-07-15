@@ -35,7 +35,7 @@ public class Menu2 {
                             break;
                         case 2:
                             Administracao administracao = new Administracao();
-                            Administracao.met2hodMenuAdm();
+                            Administracao.methodMenuAdm();
                             break;
                         case 0:
                             Logout.methodLogout();
